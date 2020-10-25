@@ -1,21 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import Body from './components/Body';
+import Header from './components/Header'
 
 export default function App() {
+  const [DATA, setDATA] = React.useState([]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View >
+        <StatusBar hidden={false} />
+        <Header />
+        <Body data={DATA} setDATA={setDATA} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
