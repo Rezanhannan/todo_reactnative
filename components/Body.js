@@ -8,7 +8,6 @@ import Todos from './Todos';
 export default function Body(props) {
       return (
             <View style={styles.body}>
-
                   <AddItem data={props.data} setDATA={props.setDATA} />
                   <Todos data={props.data} setDATA={props.setDATA} />
             </View>
