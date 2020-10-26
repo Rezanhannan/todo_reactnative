@@ -5,7 +5,7 @@ import TodoItem from './TodoItem';
 
 export default function Todos(props) {
 
-      const renderItem = ({ item }) => (<TodoItem text={item.text} id={item.id} data={props.data} setDATA={props.setDATA} />);
+      const renderItem = ({ item }) => (<TodoItem text={item.text} id={item.id} date={item.date} time={item.time} data={props.data} setDATA={props.setDATA} />);
 
       return (
             <View>
@@ -30,10 +30,7 @@ const styles = StyleSheet.create({
             borderStyle: "dashed",
             borderRadius: 1,
             borderRadius: 10,
-            shadowOpacity: 0.75,
-            shadowRadius: 5,
-            shadowColor: 'red',
-            shadowOffset: { height: 0, width: 0 },
+
       }
 
 });

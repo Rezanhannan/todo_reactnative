@@ -12,7 +12,8 @@ export default function TodoItem(props) {
                         deleteItemById(props.id);
                   }}>
                         <Text style={styles.text}>
-                              {props.text + " " + props.id}
+                              {/* {props.text} */}
+                              {props.text + " " + props.date.toLocaleDateString() + " " + props.time.toLocaleTimeString()}
                         </Text>
 
                   </TouchableOpacity>
