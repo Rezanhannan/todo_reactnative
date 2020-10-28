@@ -68,6 +68,7 @@ export default function AddItem(props) {
 
 
       let addNewTodo = () => {
+
             if (value.length < 3) {
                   Alert.alert("Fehler", "Der Text muss mindestens drei Zeichen haben!");
                   return;
@@ -87,6 +88,7 @@ export default function AddItem(props) {
             props.setDATA(newData);
 
             setValue("");// nach Eingabe leeren
+
             // props.setDATA((data) => {
             //       return [...data, {
             //             id: myRnId(),
@@ -158,16 +160,20 @@ const formatDate = (date, time) => {
             1}/${date.getFullYear()} ${time.getHours()}:${time.getMinutes()}`;
 };
 
+
 const styles = StyleSheet.create({
+
       dtText: {
             color: 'black',
+            fontFamily: 'gs-regular',
       },
       input: {
             height: 40,
             borderColor: '#ddd',
             borderWidth: 0,
             borderBottomWidth: 2,
-            color: '#888'
+            color: '#888',
+            fontFamily: 'gs-regular',
       },
       button: {
             backgroundColor: '#A1CE5E',//A1CE5E ff973e
@@ -177,7 +183,12 @@ const styles = StyleSheet.create({
             marginBottom: 20,
             borderRadius: 5,
       },
+      fs: {
+            fontFamily: 'gs-regular',
+      },
       text: {
             color: '#ffffff',
-      }
+            fontFamily: 'gs-regular',
+      },
+
 });

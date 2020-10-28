@@ -7,8 +7,17 @@ import Header from './components/Header';
 import { useFonts } from 'expo-font';
 import { AppLoading } from 'expo';
 
+import Main from './screens/Main';
+import Details from './screens/Details';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+
 export default function App() {
-  const [DATA, setDATA] = React.useState([]);
+
+
+  const Stack = createStackNavigator();
 
   let [fontsLoaded] = useFonts({
     'gs-bold': require('./assets/fonts/Grandstander-Bold.ttf'),
@@ -19,13 +28,12 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View >
-        <StatusBar hidden={false} />
-        <Header />
-        <Body data={DATA} setDATA={setDATA} />
-      </View>
-    </TouchableWithoutFeedback>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Details" component={Details} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

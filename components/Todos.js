@@ -5,7 +5,15 @@ import TodoItem from './TodoItem';
 
 export default function Todos(props) {
 
-      const renderItem = ({ item }) => (<TodoItem text={item.text} id={item.id} date={item.date} time={item.time} data={props.data} setDATA={props.setDATA} />);
+      const renderItem = ({ item }) => (
+            <TodoItem text={item.text}
+                  id={item.id}
+                  date={item.date}
+                  time={item.time}
+                  data={props.data}
+                  setDATA={props.setDATA}
+                  navigation={props.navigation}
+                  item={item} />);
 
       return (
             <View>

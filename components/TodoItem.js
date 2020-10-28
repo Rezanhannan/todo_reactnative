@@ -20,10 +20,11 @@ export default function TodoItem(props) {
                   paddingVertical: 10,
             }}>
                   <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start' }}>
-                        <Text style={styles.todoItemText, { alignSelf: 'center', fontFamily: 'gs-regular', fontSize: 18, }}>
-                              {props.text + " " + props.date.toLocaleDateString() + " " + props.time.toLocaleTimeString()}
-
-                        </Text>
+                        <TouchableOpacity onPress={props.navigation.navigate('Details', { item: props.item })}>
+                              <Text style={styles.todoItemText, { alignSelf: 'center', fontFamily: 'gs-regular', fontSize: 18, }}>
+                                    {props.text + " " + props.date.toLocaleDateString() + " " + props.time.toLocaleTimeString()}
+                              </Text>
+                        </TouchableOpacity>
                   </View>
                   <View style={{ alignSelf: "flex-end", paddingRight: 20, alignSelf: 'center' }}>
                         <TouchableOpacity onPress={() => { deleteItemById(props.id); }}>
