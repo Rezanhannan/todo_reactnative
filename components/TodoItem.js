@@ -20,7 +20,7 @@ export default function TodoItem(props) {
                   paddingVertical: 10,
             }}>
                   <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start' }}>
-                        <Text style={styles.text, { alignSelf: 'center', }}>
+                        <Text style={styles.todoItemText, { alignSelf: 'center', fontFamily: 'gs-regular', fontSize: 18, }}>
                               {props.text + " " + props.date.toLocaleDateString() + " " + props.time.toLocaleTimeString()}
 
                         </Text>
@@ -51,16 +51,18 @@ const styles = StyleSheet.create({
       },
       icon: {
             paddingLeft: 50,
-            color: '#A1CE5E',
+            color: '#ff973e',
+            fontSize: 24,
       },
       body: {
             marginHorizontal: 20,
       },
-      text: {
+      todoItemText: {
 
             padding: 16,
             paddingRight: 30,
             marginTop: 16,
+            fontFamily: 'gs-bold',
 
             // borderColor: '#bbb',
             // borderWidth: 1,

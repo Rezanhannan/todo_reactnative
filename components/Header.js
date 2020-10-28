@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
 
       headerText: {
             color: '#ffffff',
-            fontSize: 18,
-            fontStyle: "normal",
-            fontWeight: 'bold'
+            fontSize: 24,
+            // fontStyle: "normal",
+            // fontWeight: 'bold',
+            fontFamily: 'gs-bold',
       },
 
 });

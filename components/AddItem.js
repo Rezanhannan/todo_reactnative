@@ -2,6 +2,10 @@ import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text, Alert, Keyboard } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+
+
+
+
 export default function AddItem(props) {
       const [value, setValue] = React.useState("");
       const [valueTD, setValueTD] = React.useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
