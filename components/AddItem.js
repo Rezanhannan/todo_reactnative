@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
             color: '#888'
       },
       button: {
-            backgroundColor: '#ff973e',
+            backgroundColor: '#A1CE5E',//A1CE5E ff973e
             alignItems: 'center',
             padding: 10,
             marginTop: 20,
@@ -176,19 +176,4 @@ const styles = StyleSheet.create({
       text: {
             color: '#ffffff',
       }
-      // container: {
-      //       backgroundColor: '#ff973e',
-      //       alignItems: 'center',
-      //       justifyContent: 'center',
-      //       marginVertical: 40,
-      //       paddingTop: 40,
-      //       paddingBottom: 20,
-      // },
-
-      // headerText: {
-      //       color: '#ffffff',
-      //       fontSize: 18,
-      //       fontStyle: "normal"
-      // },
-
 });
