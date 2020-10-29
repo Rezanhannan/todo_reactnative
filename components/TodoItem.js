@@ -7,6 +7,7 @@ export default function TodoItem(props) {
             const filteredData = props.data.filter(item => item.id !== id);
             props.setDATA(filteredData);
       }
+      const navigation = props.navigation;
       return (
             <View style={{
                   // flex: 1,
@@ -20,9 +21,14 @@ export default function TodoItem(props) {
                   paddingVertical: 10,
             }}>
                   <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start' }}>
-                        <TouchableOpacity onPress={props.navigation.navigate('Details', { item: props.item })}>
-                              <Text style={styles.todoItemText, { alignSelf: 'center', fontFamily: 'gs-regular', fontSize: 18, }}>
-                                    {props.text + " " + props.date.toLocaleDateString() + " " + props.time.toLocaleTimeString()}
+                        <TouchableOpacity onPress={() => navigation.navigate('Details', { item: props.item })}>
+                              <Text style={styles.todoItemText,
+                              {
+                                    alignSelf: 'center',
+                                    fontFamily: 'gs-regular', fontSize: 18,
+                                    // backgroundColor: 'green'
+                              }}>
+                                    {props.text + " " + props.date + " " + props.time}
                               </Text>
                         </TouchableOpacity>
                   </View>
@@ -64,13 +70,6 @@ const styles = StyleSheet.create({
             paddingRight: 30,
             marginTop: 16,
             fontFamily: 'gs-bold',
-
-            // borderColor: '#bbb',
-            // borderWidth: 1,
-            // borderStyle: "dashed",
-            // borderRadius: 1,
-            // borderRadius: 10,
-
       }
 
 });

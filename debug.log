@@ -1,2 +1,3 @@
 [1024/195515.782:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
 [1027/231918.722:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1029/084331.574:ERROR:crash_report_database_win.cc(498)] failed to stat report

@@ -62,11 +62,6 @@ export default function AddItem(props) {
             showMode('time');
 
       };
-
-
-      ////////////////////////////////////////////////////////////
-
-
       let addNewTodo = () => {
 
             if (value.length < 3) {
@@ -80,21 +75,14 @@ export default function AddItem(props) {
             newData.push({
                   id: myRnId(),
                   text: value,
-                  date: date,
-                  time: time,
+                  date: date.toLocaleDateString(),
+                  time: time.toLocaleTimeString(),
             });
 
             Keyboard.dismiss();
             props.setDATA(newData);
 
-            setValue("");// nach Eingabe leeren
-
-            // props.setDATA((data) => {
-            //       return [...data, {
-            //             id: myRnId(),
-            //             text: value
-            //       }];
-            // });
+            setValue("");
       };
 
       return (
@@ -104,7 +92,6 @@ export default function AddItem(props) {
                         onChangeText={text => setValue(text)}
                         value={value}
                         placeholder="Neue Aufgabe..."
-                  // blurOnSubmit={Keyboard.dismiss}
                   />
 
                   <TextInput
