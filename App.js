@@ -7,17 +7,18 @@ import Header from './components/Header';
 import { useFonts } from 'expo-font';
 import { AppLoading } from 'expo';
 
-import Main from './screens/Main';
-import Details from './screens/Details';
-
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import Home from './routes/Home';
+import Settings from './routes/Settings';
+
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function App() {
 
 
-  const Stack = createStackNavigator();
+  const Tab = createBottomTabNavigator();
 
   let [fontsLoaded] = useFonts({
     'gs-bold': require('./assets/fonts/Grandstander-Bold.ttf'),
@@ -29,10 +30,29 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Details" component={Details} />
-      </Stack.Navigator>
+      <Tab.Navigator tabBarOptions={
+        {
+          tabStyle: {
+            // height: 128,
+            backgroundColor: 'green',
+
+          },
+          style: {
+            height: 50,
+
+          },
+          labelStyle: {
+            // color: 'white',
+            fontSize: 20,
+            fontFamily: 'gs-bold',
+
+          },
+        }
+
+      }>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={Settings} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
