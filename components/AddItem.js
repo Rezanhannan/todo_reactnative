@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text, Alert, Keyboard } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+import { writeData } from '../StorageHandle';
 
 
 
@@ -62,6 +63,17 @@ export default function AddItem(props) {
             showMode('time');
 
       };
+
+      // const storeData = async (value) => {
+
+      //       try {
+      //             const jsonValue = JSON.stringify(value);
+      //             await AsyncStorage.setItem('@storage_Key', jsonValue)
+      //       } catch (e) {
+      //             console.log(e);
+      //       }
+      // }
+
       let addNewTodo = () => {
 
             if (value.length < 3) {
@@ -80,7 +92,12 @@ export default function AddItem(props) {
             });
 
             Keyboard.dismiss();
-            props.setDATA(newData);
+            // props.setDATA(newData);
+
+            /////////////// save data
+            writeData(newData);
+
+            //////////////
 
             setValue("");
       };

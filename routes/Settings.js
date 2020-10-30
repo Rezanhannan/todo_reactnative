@@ -22,8 +22,6 @@ export default function Settings() {
                   <Text style={styles.text}>
                         Hier sind die Einstellungen
                   </Text>
-
-
             </View>
       );
 }

@@ -1,12 +1,39 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { writeData } from '../StorageHandle';
 
 export default function TodoItem(props) {
+
+
+
       let deleteItemById = id => {
             const filteredData = props.data.filter(item => item.id !== id);
-            props.setDATA(filteredData);
+            writeData(filteredData);
+            // props.setDATA(filteredData);
+
       }
+
+      let showDialog = id => {
+            Alert.alert(
+                  'Löschen',
+                  'Möchten Sie das Todo-Element löschen?',
+                  [
+
+                        {
+                              text: 'Cancel',
+                              onPress: () => { },
+                              style: 'cancel',
+                        },
+                        {
+                              text: 'OK',
+                              onPress: () => { deleteItemById(id) }
+                        },
+                  ],
+                  { cancelable: false },
+            );
+      }
+
       const navigation = props.navigation;
       return (
             <View style={{
@@ -33,7 +60,7 @@ export default function TodoItem(props) {
                         </TouchableOpacity>
                   </View>
                   <View style={{ alignSelf: "flex-end", paddingRight: 20, alignSelf: 'center' }}>
-                        <TouchableOpacity onPress={() => { deleteItemById(props.id); }}>
+                        <TouchableOpacity onPress={() => { showDialog(props.id);/*deleteItemById(props.id); */ }}>
                               <FontAwesome5 name="trash" size={18} style={styles.icon} />
                         </TouchableOpacity>
                   </View>

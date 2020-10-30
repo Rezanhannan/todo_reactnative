@@ -42,13 +42,11 @@ export default function App() {
 
           },
           labelStyle: {
-            // color: 'white',
             fontSize: 20,
             fontFamily: 'gs-bold',
 
           },
         }
-
       }>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Settings" component={Settings} />
