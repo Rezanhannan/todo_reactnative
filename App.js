@@ -13,11 +13,25 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './routes/Home';
 import Settings from './routes/Settings';
 
-import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+
+
 
 export default function App() {
 
+  const icons = {
+    Home: 'ios-home',
+    Settings: 'md-settings',
+  }
 
+  const tabBarIcon = (iconName, color, size) => {
+    return (<Ionicons
+      name={icons[iconName]}
+      size={size}
+      color={color}
+    />);
+  }
   const Tab = createBottomTabNavigator();
 
   let [fontsLoaded] = useFonts({
@@ -38,7 +52,7 @@ export default function App() {
 
           },
           style: {
-            height: 50,
+            height: 80,
 
           },
           labelStyle: {
@@ -46,8 +60,16 @@ export default function App() {
             fontFamily: 'gs-bold',
 
           },
+          activeTintColor: '#ff973e',
+          inactiveTintColor: '#ffffff'
         }
-      }>
+      }
+        screenOptions={
+          ({ route }) => ({
+            tabBarIcon: ({ color, size }) => tabBarIcon(route.name, color, 40),
+          })
+        }
+      >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
